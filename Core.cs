@@ -67,6 +67,12 @@ namespace DudeVoiceChat
                 ChatManager.say(player.channel.owner.playerID.steamID, Translations.Instance.Translate("error_not_found"), Palette.COLOR_R, true);
                 return;
             }
+            
+            if (!UnturnedPlayer.FromPlayer(player).HasPermission(newVoice.Permission))
+            {
+                ChatManager.say(player.channel.owner.playerID.steamID, Translations.Instance.Translate("no_permission", newVoice.Name), Palette.COLOR_R, true);
+                return;
+            }
 
             voicePlayers[player.channel.owner.playerID.steamID] = newVoice;
             updateHUD(player, newVoice);
@@ -76,17 +82,17 @@ namespace DudeVoiceChat
         public void ChangeVoiceType(Player player)
         {
             var steamId = player.channel.owner.playerID.steamID;
-            
-            // return to first
-            if (voicePlayers[steamId].Order >= Configuration.Instance.VoiceTypes.Count)
+            var voicetype = voicePlayers[steamId].Order >= Configuration.Instance.VoiceTypes.Count
+                ? Configuration.Instance.VoiceTypes.FirstOrDefault(vt => vt.Order == 1)
+                : Configuration.Instance.VoiceTypes.FirstOrDefault(vt => vt.Order == voicePlayers[steamId].Order + 1);
+
+            if (!UnturnedPlayer.FromPlayer(player).HasPermission(voicetype.Permission))
             {
-                voicePlayers[steamId] = Configuration.Instance.VoiceTypes.FirstOrDefault(vt => vt.Order == 1);
-                updateHUD(player, voicePlayers[steamId]);
-                if (Configuration.Instance.ShouldSayMessage) ChatManager.say(player.channel.owner.playerID.steamID, Translations.Instance.Translate("changed", voicePlayers[steamId].Name), Color.white, true);
+                ChatManager.say(steamId, Translations.Instance.Translate("no_permission", voicetype.Name), Palette.COLOR_R, true);
                 return;
             }
-
-            voicePlayers[steamId] = Configuration.Instance.VoiceTypes.FirstOrDefault(vt => vt.Order == voicePlayers[steamId].Order + 1);
+            
+            voicePlayers[steamId] = voicetype;
             updateHUD(player, voicePlayers[steamId]);
             if (Configuration.Instance.ShouldSayMessage) ChatManager.say(player.channel.owner.playerID.steamID, Translations.Instance.Translate("changed", voicePlayers[steamId].Name), Color.white, true);
         }
@@ -100,7 +106,7 @@ namespace DudeVoiceChat
         {
             if (!UnturnedPlayer.FromPlayer(speaker.player).HasPermission(voicePlayers[speaker.player.channel.owner.playerID.steamID].Permission))
             {
-                ChatManager.say(speaker.player.channel.owner.playerID.steamID, Translations.Instance.Translate("no_permission"), Palette.COLOR_R, true);
+                ChatManager.say(speaker.player.channel.owner.playerID.steamID, Translations.Instance.Translate("no_permission", voicePlayers[speaker.player.channel.owner.playerID.steamID].Name), Palette.COLOR_R, true);
                 return false;
             }
 
@@ -145,7 +151,7 @@ namespace DudeVoiceChat
             new TranslationList
             {
                 {"changed","<color=green>Voice</color> >> Your voice was successfully changed to <color=green><b>{0}</b></color>!"},
-                {"no_permission","You don't have permission to talk!"},
+                {"no_permission","You don't have permission to use {0} voice mode!"},
                 {"error_not_found","Voice type with that name doesn't exist!"},
             };
     }
