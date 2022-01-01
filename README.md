@@ -1,7 +1,7 @@
 # DudeVoiceChat
 - This plugin can edit player's voice distance
 - 0Harmony is neccessary
-[Workshop UI link](https://steamcommunity.com/sharedfiles/filedetails/?id=2391628792)
+- [Workshop UI link](https://steamcommunity.com/sharedfiles/filedetails/?id=2391628792)
 
 ## Commands
 - `/changevoice {voice type name}` = allows you to change your voice mode (*if argument isn't specified it goes by the order*)
