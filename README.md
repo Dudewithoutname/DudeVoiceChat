@@ -1,5 +1,6 @@
 # DudeVoiceChat
 This plugin can edit player's voice distance
+Need 0Harmony to run
 [Workshop UI link](https://steamcommunity.com/sharedfiles/filedetails/?id=2391628792)
 
 ## Commands
