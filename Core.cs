@@ -17,7 +17,6 @@ namespace DudeVoiceChat
     public class Core : RocketPlugin<Config>
     {
         public static Core Singleton;
-        
         private static Dictionary<CSteamID, Voice> voicePlayers;
         private static Dictionary<CSteamID, KeyWatcher> watchers;
         private string logPrefix = "DudeVoiceChat";
@@ -29,6 +28,12 @@ namespace DudeVoiceChat
             Singleton = this;
             voicePlayers = new Dictionary<CSteamID, Voice>();
             defaultvoiceType = Configuration.Instance.VoiceTypes.FirstOrDefault(voice => voice.Name == Configuration.Instance.DefaultVoice);
+            // in case player wants to reload
+            foreach (var client in Provider.clients)
+            {
+                if (client == null) continue;
+                voicePlayers.Add(client.playerID.steamID, defaultvoiceType);
+            }
             if (Configuration.Instance.KeyId < 9 || Configuration.Instance.KeyId > 12)
             {
                 Logger.LogWarning($"Auto-Fix: KeyId ({Configuration.Instance.KeyId}) cannot be higher than 12 or lower than 9");
