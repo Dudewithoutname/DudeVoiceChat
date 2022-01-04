@@ -109,7 +109,7 @@ namespace DudeVoiceChat
 
         private bool onHandleVoice(PlayerVoice speaker, PlayerVoice listener)
         {
-            if (!UnturnedPlayer.FromPlayer(speaker.player).HasPermission(voicePlayers[speaker.player.channel.owner.playerID.steamID].Permission))
+            if (!UnturnedPlayer.FromPlayer(speaker.player).HasPermission(voicePlayers[speaker.player.channel.owner.playerID.steamID].Permission) && voicePlayers[speaker.player.channel.owner.playerID.steamID].Permission != string.Empty)
             {
                 ChatManager.say(speaker.player.channel.owner.playerID.steamID, Translations.Instance.Translate("no_permission", voicePlayers[speaker.player.channel.owner.playerID.steamID].Name), Palette.COLOR_R, true);
                 return false;
