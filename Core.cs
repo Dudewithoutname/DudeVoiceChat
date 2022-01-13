@@ -73,7 +73,7 @@ namespace DudeVoiceChat
                 return;
             }
             
-            if (!UnturnedPlayer.FromPlayer(player).HasPermission(newVoice.Permission))
+            if (newVoice.Permission != "no_permission" && !UnturnedPlayer.FromPlayer(player).HasPermission(newVoice.Permission))
             {
                 ChatManager.say(player.channel.owner.playerID.steamID, Translations.Instance.Translate("no_permission", newVoice.Name), Palette.COLOR_R, true);
                 return;
@@ -91,7 +91,7 @@ namespace DudeVoiceChat
                 ? Configuration.Instance.VoiceTypes.FirstOrDefault(vt => vt.Order == 1)
                 : Configuration.Instance.VoiceTypes.FirstOrDefault(vt => vt.Order == voicePlayers[steamId].Order + 1);
 
-            if (!UnturnedPlayer.FromPlayer(player).HasPermission(voicetype.Permission))
+            if (voicetype.Permission != "no_permission" && !UnturnedPlayer.FromPlayer(player).HasPermission(voicetype.Permission))
             {
                 ChatManager.say(steamId, Translations.Instance.Translate("no_permission", voicetype.Name), Palette.COLOR_R, true);
                 return;
@@ -109,7 +109,7 @@ namespace DudeVoiceChat
 
         private bool onHandleVoice(PlayerVoice speaker, PlayerVoice listener)
         {
-            if (!UnturnedPlayer.FromPlayer(speaker.player).HasPermission(voicePlayers[speaker.player.channel.owner.playerID.steamID].Permission) && voicePlayers[speaker.player.channel.owner.playerID.steamID].Permission != string.Empty)
+            if (voicePlayers[speaker.player.channel.owner.playerID.steamID].Permission != "no_permission" && !UnturnedPlayer.FromPlayer(speaker.player).HasPermission(voicePlayers[speaker.player.channel.owner.playerID.steamID].Permission))
             {
                 ChatManager.say(speaker.player.channel.owner.playerID.steamID, Translations.Instance.Translate("no_permission", voicePlayers[speaker.player.channel.owner.playerID.steamID].Name), Palette.COLOR_R, true);
                 return false;

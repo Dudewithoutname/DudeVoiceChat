@@ -29,21 +29,24 @@ namespace DudeVoiceChat
                     Order = 1,
                     Name = "Whisper",
                     EffectId = 31931,
-                    Range = 30
+                    Range = 30,
+                    Permission = "no_permission"
                 },
                 new Voice
                 {
                     Order = 2,
                     Name = "Talk",
                     EffectId = 31932,
-                    Range = 50
+                    Range = 50,
+                    Permission = "no_permission"
                 },
                 new Voice
                 {
                     Order = 3,
                     Name = "Shout",
                     EffectId = 31933,
-                    Range = 100
+                    Range = 100,
+                    Permission = "no_permission"
                 }
             };
         }
