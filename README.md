@@ -1,6 +1,6 @@
 # DudeVoiceChat
 - This plugin can edit player's voice distance
-- 0Harmony is neccessary
+- 0Harmony is required
 - [Workshop UI link](https://steamcommunity.com/sharedfiles/filedetails/?id=2391628792)
 
 ## Commands
@@ -19,7 +19,7 @@
 - **Order** = order of voice modes when pressing keybind or command without argument (*if it's 0 it can be only accessed via /changevoice (name)*)
 - **Name** = name ... i guess it's not neccessary to explain this parameter
 - **EffectId** = Id for the UI
-- **Permission** = permission for the voice type (*if it isn't specified it shouldn't require any permission*)
+- **Permission** = permission for the voice type (*if "no_permission" is specified it shouldn't require any permission*)
 
 ## KeyId
 - PluginHotkey1 = 9
