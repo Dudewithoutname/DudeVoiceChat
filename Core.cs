@@ -142,7 +142,11 @@ namespace DudeVoiceChat
 
             if (voicePlayers.ContainsKey(steamId))
             {
-                if (Configuration.Instance.EnableKeyChange && watchers.ContainsKey(player.playerID.steamID)) watchers[player.playerID.steamID].Stop();
+                if (Configuration.Instance.EnableKeyChange && watchers.ContainsKey(player.playerID.steamID))
+                {
+                    watchers[player.playerID.steamID].Stop();
+                    watchers.Remove(player.playerID.steamID);
+                }
                 voicePlayers.Remove(steamId);
             }
             else
