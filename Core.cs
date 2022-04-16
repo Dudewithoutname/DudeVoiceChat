@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using DudeVoiceChat.Models;
-using HarmonyLib;
-using Rocket.API;
-using Rocket.API.Collections;
-using Rocket.Core.Plugins;
-using Rocket.Core.Utils;
-using Rocket.Unturned.Player;
-using SDG.Unturned;
+﻿using System.Linq;
+using System.Collections.Generic;
 using Steamworks;
+using HarmonyLib;
 using UnityEngine;
+using Rocket.API;
+using Rocket.Unturned.Player;
+using Rocket.API.Collections;
+using SDG.Unturned;
+using Rocket.Core.Plugins;
+using DudeVoiceChat.Models;
 using Logger = Rocket.Core.Logging.Logger;
 
 namespace DudeVoiceChat
@@ -19,7 +18,7 @@ namespace DudeVoiceChat
         public static Core Singleton;
         private static Dictionary<CSteamID, Voice> voicePlayers;
         private static Dictionary<CSteamID, KeyWatcher> watchers;
-        private string logPrefix = "DudeVoiceChat";
+        private const string logPrefix = "DudeVoiceChat";
         private Voice defaultvoiceType;
         private Harmony harmony;
         
@@ -28,12 +27,10 @@ namespace DudeVoiceChat
             Singleton = this;
             voicePlayers = new Dictionary<CSteamID, Voice>();
             defaultvoiceType = Configuration.Instance.VoiceTypes.FirstOrDefault(voice => voice.Name == Configuration.Instance.DefaultVoice);
+
             // in case player wants to reload
-            foreach (var client in Provider.clients)
-            {
-                if (client == null) continue;
-                voicePlayers.Add(client.playerID.steamID, defaultvoiceType);
-            }
+            foreach (var client in Provider.clients.Where(client => client != null)) voicePlayers.Add(client.playerID.steamID, defaultvoiceType);
+            
             if (Configuration.Instance.KeyId < 9 || Configuration.Instance.KeyId > 12)
             {
                 Logger.LogWarning($"Auto-Fix: KeyId ({Configuration.Instance.KeyId}) cannot be higher than 12 or lower than 9");

@@ -44,12 +44,4 @@ namespace DudeVoiceChat
             }
         }
     }
-
-    /*public enum UnturnedKey
-    {
-        CodeHotkey1 = 9,
-        CodeHotkey2 = 10,
-        CodeHotkey3 = 11,
-        CodeHotkey4 = 12,
-    }*/
 }

@@ -32,7 +32,7 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="0Harmony, Version=2.0.0.8, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="0Harmony, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>D:\SteamLibrary\steamapps\common\U3DS\Servers\Default\Rocket\Libraries\0Harmony.dll</HintPath>
         </Reference>
         <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -41,13 +41,13 @@
         <Reference Include="com.rlabrecque.steamworks.net, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>D:\SteamLibrary\steamapps\common\U3DS\Unturned_Data\Managed\com.rlabrecque.steamworks.net.dll</HintPath>
         </Reference>
-        <Reference Include="Rocket.API, Version=4.9.3.4, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="Rocket.API, Version=4.9.3.5, Culture=neutral, PublicKeyToken=null">
           <HintPath>D:\SteamLibrary\steamapps\common\U3DS\Extras\Rocket.Unturned\Rocket.API.dll</HintPath>
         </Reference>
-        <Reference Include="Rocket.Core, Version=4.9.3.4, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="Rocket.Core, Version=4.9.3.5, Culture=neutral, PublicKeyToken=null">
           <HintPath>D:\SteamLibrary\steamapps\common\U3DS\Extras\Rocket.Unturned\Rocket.Core.dll</HintPath>
         </Reference>
-        <Reference Include="Rocket.Unturned, Version=4.9.3.13, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="Rocket.Unturned, Version=4.9.3.14, Culture=neutral, PublicKeyToken=null">
           <HintPath>D:\SteamLibrary\steamapps\common\U3DS\Extras\Rocket.Unturned\Rocket.Unturned.dll</HintPath>
         </Reference>
         <Reference Include="SDG.Glazier.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
