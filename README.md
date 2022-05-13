@@ -1,3 +1,4 @@
+yah, i know this plugin is kinda shit made, but i was lazy
 # DudeVoiceChat
 - This plugin can edit player's voice distance
 - 0Harmony is required
