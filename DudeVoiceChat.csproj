@@ -11,6 +11,7 @@
         <AssemblyName>DudeVoiceChat</AssemblyName>
         <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
+        <LangVersion>9</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -74,13 +75,14 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Commands\CChangeVoice.cs" />
+        <Compile Include="Commands\CommandChange.cs" />
         <Compile Include="Config.cs" />
         <Compile Include="Core.cs" />
-        <Compile Include="KeyWatcher.cs" />
         <Compile Include="Models\Voice.cs" />
+        <Compile Include="Models\VoicePlayer.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="VoicePatch.cs" />
+        <Compile Include="Utils\PlayerEx.cs" />
+        <Compile Include="Utils\VoicePatch.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

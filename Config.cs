@@ -7,46 +7,57 @@ namespace DudeVoiceChat
     public class Config : IRocketPluginConfiguration
     {
         public bool ShouldSayMessage;
-        public bool EnableKeyChange;
-        public int KeyCheckTick;
-        public byte KeyId;
+        public bool EnableChangeByKey;
+        public byte Key;
         public string DefaultVoice;
-        public ushort BackgroundEffectId;
-        public List<Voice> VoiceTypes;
+        public ushort EffectId;
+        public List<Voice> Voices;
         
         public void LoadDefaults()
         {
             ShouldSayMessage = true;
-            EnableKeyChange = true;
-            KeyCheckTick = 100;
-            KeyId = 9;
+            EnableChangeByKey = true;
+            Key = 0;
             DefaultVoice = "Talk";
-            BackgroundEffectId = 31930;
-            VoiceTypes = new List<Voice>
+            EffectId = 42767;
+            Voices = new List<Voice>
             {
-                new Voice
+                new ()
                 {
                     Order = 1,
                     Name = "Whisper",
-                    EffectId = 31931,
-                    Range = 30,
-                    Permission = "no_permission"
+                    Range = 15,
+                    Icon = "https://i.ibb.co/KNp3Fqs/vc-3.png"
                 },
-                new Voice
+                new ()
                 {
                     Order = 2,
                     Name = "Talk",
-                    EffectId = 31932,
-                    Range = 50,
-                    Permission = "no_permission"
+                    Range = 35,
+                    Icon = "https://i.ibb.co/3CgR3jN/vc-2.png"
                 },
-                new Voice
+                new ()
                 {
                     Order = 3,
                     Name = "Shout",
-                    EffectId = 31933,
-                    Range = 100,
-                    Permission = "no_permission"
+                    Range = 70,
+                    Icon = "https://i.ibb.co/KVtxtcN/vc-1.png"
+                },
+                new ()
+                {
+                    Order = 0,
+                    Name = "Global",
+                    Icon = "https://i.ibb.co/JQMv5J7/vc-5.png",
+                    Permission = "dudevoice.global",
+                    IsGlobal = true
+                },
+                new ()
+                {
+                    Order = 0,
+                    Name = "Police",
+                    Icon = "https://i.ibb.co/7VB0b8c/vc-4.png",
+                    Permission = "dudevoice.police",
+                    IsChannelBased = true
                 }
             };
         }

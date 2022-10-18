@@ -1,11 +1,16 @@
-﻿namespace DudeVoiceChat.Models
+﻿using System;
+
+namespace DudeVoiceChat.Models
 {
-    public class Voice
+    [Serializable]
+    public record Voice
     {
         public byte Order;
         public string Name;
-        public uint Range;
-        public ushort EffectId;
+        public string Icon;
         public string Permission;
+        public bool IsChannelBased;
+        public bool IsGlobal;
+        public uint Range;
     }
 }
