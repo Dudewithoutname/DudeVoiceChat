@@ -1,4 +1,4 @@
-update 2.0 (not released yet, BTW IK ABOUT THE LINQ shit gimme some time i need to sleep and do stuff)
+update 2.0 (not released yet)
 # DudeVoiceChat
 - This plugin can edit player's voice distance
 - 0Harmony is required
