@@ -19,7 +19,6 @@ namespace DudeVoiceChat
         public int MaxOrder;
         private Harmony harmony;
         
-        
         public override TranslationList DefaultTranslations => new ()
         {
             {"changed","[color=green]Voice[/color] > Your voice was successfully changed to [color=green][b]{0}[/b][/color]!"}, 
