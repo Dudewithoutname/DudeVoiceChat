@@ -60,12 +60,7 @@ namespace DudeVoiceChat
         
         private void onPlayerCreated(Player player) 
         {
-            if (Players.ContainsKey(player.SteamId()))
-            {
-                Players.Remove(player.SteamId());
-                return;
-            }
-            
+            if (Players.ContainsKey(player.SteamId())) Players.Remove(player.SteamId());
             Players.Add(player.SteamId(), new VoicePlayer(player));
         }
 
