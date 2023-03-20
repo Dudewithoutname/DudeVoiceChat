@@ -15,8 +15,8 @@ namespace DudeVoiceChat
     public class Core : RocketPlugin<Config>
     {
         public static Core Singleton;
-        public Dictionary<CSteamID, VoicePlayer> Players;
         public int MaxOrder;
+        public Dictionary<CSteamID, VoicePlayer> Players;
         private Harmony harmony;
         
         public override TranslationList DefaultTranslations => new ()
