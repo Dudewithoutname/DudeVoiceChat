@@ -21,9 +21,9 @@ namespace DudeVoiceChat
         
         public override TranslationList DefaultTranslations => new ()
         {
-            {"changed","[color=#a93dfc]Voice[/color] > Your voice has been set to [color=#a93dfc][b]{0}[/b][/color]!"}, 
-            {"no_permission","You don't have permission to use {0} voice mode!"}, 
-            {"not_found","Voice mode with that name does not exist!"},
+            {"changed", "[color=#a93dfc]Voice[/color] > Your voice has been set to [color=#a93dfc][b]{0}[/b][/color]!"}, 
+            {"no_permission", "You don't have permission to use {0} voice mode!"}, 
+            {"not_found", "Voice mode with that name does not exist!"},
         };
         public static string Trans(string key, params object[] placeholder) => Singleton.Translate(key, placeholder).Replace("[", "<").Replace("]", ">");
 
